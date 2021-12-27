@@ -29,7 +29,8 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     // absolute path to public folder similar to above
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true
   }
 };
 
