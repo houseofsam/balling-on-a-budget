@@ -1,21 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { removeExpense } from '../actions/expenses';
+import { Link } from 'react-router-dom';
 
-// We have access to dispatch from inside of our connected components so we could call it directly to dispatch actions
-const ExpenseListItem = ({ description, amount, createdAt, id, dispatch }) => {
+const ExpenseListItem = ({ description, amount, createdAt, id }) => {
   return (
     <div>
-        <h3>Description: {description}</h3>
+        <Link to={`/edit/${id}`}>
+          <h3>Description: {description}</h3>
+        </Link>
         Amount: {amount} -- Created At: {createdAt}
-        <button onClick={() => {
-          dispatch(removeExpense({ id }));
-        }}>
-          Delete
-        </button>
     </div>
   );
 };
 
 // dont need anything from state
-export default connect()(ExpenseListItem);
+export default ExpenseListItem;

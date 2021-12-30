@@ -4,12 +4,19 @@ import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
 export class ExpenseForm extends Component {
-  state = {
-    description: '',
-    note: '',
-    amount: '',
-    createdAt: moment(),
-    calendarFocused: false,
+  // must define our state in constructor function to access prop
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      description: props.expense ? props.expense.description : '',
+      note: props.expense ? props.expense.note : '',
+      amount: props.expense ? (props.expense.amount / 100).toString() : '',
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      calendarFocused: false,
+    };
+    // console.log('props', props);
+    // console.log('this.state', this.state);
   };
   onDescriptionChange = (e) => {
     const description = e.target.value;

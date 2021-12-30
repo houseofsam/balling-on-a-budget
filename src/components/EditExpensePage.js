@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { editExpense, removeExpense } from '../actions/expenses';
+import ExpenseForm from './ExpenseForm';
 
 const EditExpensePage = (props) => {
   console.log(props);
@@ -6,10 +9,30 @@ const EditExpensePage = (props) => {
   return (
     (
       <div>
-        Editing the expense with id of {props.match.params.id}
+        <ExpenseForm
+          expense={props.expense}
+          onSubmit={(expense) => {
+            props.dispatch(editExpense(props.expense.id, expense));
+            props.history.push('/');
+          }}
+        />
+        <button onClick={() => {
+          props.dispatch(removeExpense({ id: props.expense.id }));
+          props.history.push('/');
+        }}>
+          Delete
+        </button>
       </div>
     )
   )
 };
 
-export default EditExpensePage;
+// give components current state object
+// have access to EditExpensePage props as second argument
+const mapStateToProps = (state, props) => {
+  return {
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+  };
+};
+
+export default connect(mapStateToProps)(EditExpensePage);
