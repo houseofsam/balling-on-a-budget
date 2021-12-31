@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } from '../actions/filters';
 
@@ -12,8 +12,8 @@ class ExpenseListFilters extends Component {
     this.props.dispatch(setEndDate(endDate));
   };
   onFocusChange = (calendarFocused) => {
-    this.setState(() => ({ calendarFocused }))
-  }
+    this.setState(() => ({ calendarFocused }));
+  };
   render() {
     return (
       <div>
@@ -49,8 +49,8 @@ class ExpenseListFilters extends Component {
         />
       </div>
     );
-  };
-};
+  }
+}
 
 const mapStateToProps = (state) => {
   return {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
@@ -13,11 +13,11 @@ export class ExpenseForm extends Component {
       note: props.expense ? props.expense.note : '',
       amount: props.expense ? (props.expense.amount / 100).toString() : '',
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
-      calendarFocused: false,
+      calendarFocused: false
     };
     // console.log('props', props);
     // console.log('this.state', this.state);
-  };
+  }
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
@@ -34,11 +34,11 @@ export class ExpenseForm extends Component {
   };
   onDateChange = (createdAt) => {
     if (createdAt) {
-      this.setState(() => ({ createdAt }))
+      this.setState(() => ({ createdAt }));
     }
   };
   onFocusChange = ({ focused }) => {
-    this.setState(() => ({ calendarFocused: focused }))
+    this.setState(() => ({ calendarFocused: focused }));
   };
   onSubmit = (e) => {
     e.preventDefault();
@@ -52,11 +52,11 @@ export class ExpenseForm extends Component {
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
-        // format back to unix epoch time 
+        // format back to unix epoch time
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note
       });
-    };
+    }
   };
   render() {
     return (
@@ -69,7 +69,7 @@ export class ExpenseForm extends Component {
             autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
-          />  
+          />
           <input
             type="number"
             placeholder="Amount"
@@ -88,13 +88,12 @@ export class ExpenseForm extends Component {
             placeholder="Add a note for your expense (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
-          >
-          </textarea>
+          ></textarea>
           <button>Add Expense</button>
         </form>
       </div>
     );
-  };
-};
+  }
+}
 
-export default ExpenseForm
+export default ExpenseForm;
