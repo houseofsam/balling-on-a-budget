@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+
 
 export class ExpenseForm extends Component {
   // must define our state in constructor function to access prop
