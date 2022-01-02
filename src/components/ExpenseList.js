@@ -5,17 +5,18 @@ import getVisibleExpenses from '../selectors/expenses'
 
 export const ExpenseList = (props) => (
   <div>
-    <h1>Expense List</h1>
-    {props.expenses.map((expense) => (
-      <ExpenseListItem
-        key={expense.id}
-        // alt can just pass in one prop via spread operator
-        {...expense}
-        // description={expense.description}
-        // amount={expense.amount}
-        // createdAt={expense.createdAt}
-      />
-    ))}
+    {
+      props.expenses.length === 0 ? (
+        <p>No Expenses</p>
+      ) : (
+        props.expenses.map((expense) => (
+          <ExpenseListItem
+            key={expense.id}
+            {...expense}
+          />
+        ))
+      )
+    }
   </div>
 );
 

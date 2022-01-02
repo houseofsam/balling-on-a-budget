@@ -34,7 +34,7 @@ test('should set text filter', () => {
   const action = {
     type: 'SET_TEXT_FILTER',
     text
-  }
+  };
   const state = filtersReducer(undefined, action);
   expect(state.text).toBe(text);
 });
@@ -55,6 +55,6 @@ test('should set endDate filter', () => {
     type: 'SET_END_DATE',
     endDate
   };
-  const state= filtersReducer(undefined, action);
+  const state = filtersReducer(undefined, action);
   expect(state.endDate).toEqual(endDate);
-})
+});

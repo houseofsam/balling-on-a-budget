@@ -7,24 +7,24 @@ const EditExpensePage = (props) => {
   console.log(props);
 
   return (
-    (
-      <div>
-        <ExpenseForm
-          expense={props.expense}
-          onSubmit={(expense) => {
-            props.dispatch(editExpense(props.expense.id, expense));
-            props.history.push('/');
-          }}
-        />
-        <button onClick={() => {
+    <div>
+      <ExpenseForm
+        expense={props.expense}
+        onSubmit={(expense) => {
+          props.dispatch(editExpense(props.expense.id, expense));
+          props.history.push('/');
+        }}
+      />
+      <button
+        onClick={() => {
           props.dispatch(removeExpense({ id: props.expense.id }));
           props.history.push('/');
-        }}>
-          Delete
-        </button>
-      </div>
-    )
-  )
+        }}
+      >
+        Delete
+      </button>
+    </div>
+  );
 };
 
 // give components current state object

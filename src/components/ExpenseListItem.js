@@ -13,5 +13,4 @@ const ExpenseListItem = ({ description, amount, createdAt, id }) => {
   );
 };
 
-// dont need anything from state
 export default ExpenseListItem;

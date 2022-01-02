@@ -14,3 +14,7 @@ test('should render ExpenseForm correctly with expense data', () => {
   renderer.render(<ExpenseForm expense={expenses[1]} />);
   expect(renderer.getRenderOutput()).toMatchSnapshot();
 });
+
+test('should render error for invalid form submission', () => {
+  const renderer = new ReactShallowRenderer();
+});
