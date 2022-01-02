@@ -7,7 +7,6 @@ export class ExpenseForm extends Component {
   // must define our state in constructor function to access prop
   constructor(props) {
     super(props);
-
     this.state = {
       description: props.expense ? props.expense.description : '',
       note: props.expense ? props.expense.note : '',
@@ -15,8 +14,6 @@ export class ExpenseForm extends Component {
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false
     };
-    // console.log('props', props);
-    // console.log('this.state', this.state);
   }
   onDescriptionChange = (e) => {
     const description = e.target.value;

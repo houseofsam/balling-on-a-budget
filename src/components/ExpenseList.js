@@ -21,12 +21,10 @@ export const ExpenseList = (props) => (
 );
 
 const mapStateToProps = (state) => {
-  // return an object with any k/v pairs we like
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters)
   };
 };
 
-//1) create new const for higher order component
 export default connect(mapStateToProps)(ExpenseList);
 
